@@ -45,7 +45,7 @@ namespace BooksClient
                 BooksResult br = JsonConvert.DeserializeObject<BooksResult>(json);
 
                 dataGridView1.DataSource = br.items.Select(x => x.volumeInfo).OrderBy(x => x.pageCount).ToList();
-
+                listBox1.DataSource = dataGridView1.DataSource;
             }
             catch (Exception ex)
             {
@@ -99,6 +99,7 @@ namespace BooksClient
                         var volInfos = JsonConvert.DeserializeObject<IEnumerable<Volumeinfo>>(sr.ReadToEnd());
 
                         dataGridView1.DataSource = volInfos;
+                        listBox1.DataSource = dataGridView1.DataSource;
                     }
                 }
             }
@@ -117,6 +118,12 @@ namespace BooksClient
             }
         }
 
-
+        private void listBox1_Format(object sender, ListControlConvertEventArgs e)
+        {
+            if (e.ListItem is Volumeinfo volinfo)
+            {
+                e.Value = $"{volinfo.title} [{volinfo.publishedDate}] ({volinfo.pageCount} pages)";
+            }
+        }
     }
 }

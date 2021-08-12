@@ -19,8 +19,6 @@ namespace BooksClient
             zahlenAlsListe.Add(new List<int>());
             zahlenAlsListe.Add(new List<int>());
             zahlenAlsListe.Add(new List<int>());
-
-
         }
     }
 }

@@ -28,6 +28,12 @@ namespace BooksClient
 
     public class Volumeinfo
     {
+        //public override string ToString()
+        //{
+        //    return $"VolInfo mit dem Titel: {title}";
+        //    //return base.ToString();
+        //}
+
         public string title { get; set; }
         public string[] authors { get; set; }
         public string publisher { get; set; }

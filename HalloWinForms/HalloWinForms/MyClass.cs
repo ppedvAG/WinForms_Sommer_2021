@@ -9,6 +9,8 @@ namespace HalloWinForms
     class MyClass
     {
 
+
+
         private Größen mySize = Größen.Klein;
 
         public Größen GetGrößen()
@@ -20,15 +22,15 @@ namespace HalloWinForms
             mySize = g;
         }
 
-        private int _myNumber; //backing field
+        private int _myNummmmber; //backing field
 
         public int MyNumber //property (full)
         {
-            get { return _myNumber; }
+            get { return _myNummmmber; }
             internal set
             {
                 if (value > 12)
-                    _myNumber = value;
+                    _myNummmmber = value;
             }
         }
 

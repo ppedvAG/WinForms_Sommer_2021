@@ -29,17 +29,22 @@ namespace BooksClient
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
-            this.suchTextBox = new System.Windows.Forms.TextBox();
             this.searchBookButton = new System.Windows.Forms.Button();
             this.showForm1Button = new System.Windows.Forms.Button();
+            this.exportButton = new System.Windows.Forms.Button();
+            this.importButton = new System.Windows.Forms.Button();
+            this.suchTextBox = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.jsonTextBox = new System.Windows.Forms.TextBox();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabControl1.SuspendLayout();
@@ -52,16 +57,20 @@ namespace BooksClient
             this.tableLayoutPanel1.AutoSize = true;
             this.tableLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.tableLayoutPanel1.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.tableLayoutPanel1.ColumnCount = 5;
+            this.tableLayoutPanel1.ColumnCount = 7;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.suchTextBox, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.searchBookButton, 2, 0);
-            this.tableLayoutPanel1.Controls.Add(this.showForm1Button, 4, 0);
+            this.tableLayoutPanel1.Controls.Add(this.showForm1Button, 6, 0);
+            this.tableLayoutPanel1.Controls.Add(this.exportButton, 3, 0);
+            this.tableLayoutPanel1.Controls.Add(this.importButton, 4, 0);
+            this.tableLayoutPanel1.Controls.Add(this.suchTextBox, 1, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -79,15 +88,6 @@ namespace BooksClient
             this.label1.Size = new System.Drawing.Size(108, 32);
             this.label1.TabIndex = 0;
             this.label1.Text = "Buchtitel";
-            // 
-            // suchTextBox
-            // 
-            this.suchTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.suchTextBox.Location = new System.Drawing.Point(117, 8);
-            this.suchTextBox.Name = "suchTextBox";
-            this.suchTextBox.Size = new System.Drawing.Size(330, 39);
-            this.suchTextBox.TabIndex = 1;
-            this.suchTextBox.Text = "winforms";
             // 
             // searchBookButton
             // 
@@ -116,10 +116,48 @@ namespace BooksClient
             this.showForm1Button.UseVisualStyleBackColor = true;
             this.showForm1Button.Click += new System.EventHandler(this.showForm1Button_Click);
             // 
+            // exportButton
+            // 
+            this.exportButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.exportButton.AutoSize = true;
+            this.exportButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.exportButton.Location = new System.Drawing.Point(602, 7);
+            this.exportButton.Name = "exportButton";
+            this.exportButton.Size = new System.Drawing.Size(45, 42);
+            this.exportButton.TabIndex = 4;
+            this.exportButton.Text = "↪️";
+            this.toolTip1.SetToolTip(this.exportButton, "Export JSON");
+            this.exportButton.UseVisualStyleBackColor = true;
+            this.exportButton.Click += new System.EventHandler(this.exportButton_Click);
+            // 
+            // importButton
+            // 
+            this.importButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.importButton.AutoSize = true;
+            this.importButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.importButton.Location = new System.Drawing.Point(653, 7);
+            this.importButton.Name = "importButton";
+            this.importButton.Size = new System.Drawing.Size(45, 42);
+            this.importButton.TabIndex = 4;
+            this.importButton.Text = "↩️";
+            this.toolTip1.SetToolTip(this.importButton, "Import JSON");
+            this.importButton.UseVisualStyleBackColor = true;
+            this.importButton.Click += new System.EventHandler(this.importButton_Click);
+            // 
+            // suchTextBox
+            // 
+            this.suchTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.suchTextBox.Location = new System.Drawing.Point(117, 8);
+            this.suchTextBox.Name = "suchTextBox";
+            this.suchTextBox.Size = new System.Drawing.Size(330, 39);
+            this.suchTextBox.TabIndex = 1;
+            this.suchTextBox.Text = "winforms";
+            this.suchTextBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.suchTextBox_KeyUp);
+            // 
             // dataGridView1
             // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.AliceBlue;
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.AliceBlue;
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(3, 3);
@@ -171,8 +209,18 @@ namespace BooksClient
             this.jsonTextBox.Size = new System.Drawing.Size(1059, 522);
             this.jsonTextBox.TabIndex = 0;
             // 
+            // toolTip1
+            // 
+            this.toolTip1.IsBalloon = true;
+            // 
+            // saveFileDialog1
+            // 
+            this.saveFileDialog1.Filter = "Json Book File|*.json;*.bson|Alle Dateien|*.*";
+            this.saveFileDialog1.Title = "JSON Datei für Bücher";
+            // 
             // BooksClientForm
             // 
+            this.AcceptButton = this.searchBookButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 32F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
@@ -207,5 +255,9 @@ namespace BooksClient
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TextBox jsonTextBox;
+        private System.Windows.Forms.Button exportButton;
+        private System.Windows.Forms.Button importButton;
+        private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
     }
 }

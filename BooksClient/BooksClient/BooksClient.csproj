@@ -60,6 +60,7 @@
       <DependentUpon>BooksClientForm.cs</DependentUpon>
     </Compile>
     <Compile Include="BooksResult.cs" />
+    <Compile Include="ListenSindToll.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

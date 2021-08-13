@@ -88,7 +88,7 @@ namespace BooksClient
             this.panel1.Location = new System.Drawing.Point(7, 7);
             this.panel1.Margin = new System.Windows.Forms.Padding(7);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1776, 617);
+            this.panel1.Size = new System.Drawing.Size(850, 522);
             this.panel1.TabIndex = 0;
             // 
             // button2
@@ -98,7 +98,7 @@ namespace BooksClient
             this.button2.Margin = new System.Windows.Forms.Padding(7);
             this.button2.MinimumSize = new System.Drawing.Size(233, 0);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(1712, 575);
+            this.button2.Size = new System.Drawing.Size(786, 480);
             this.button2.TabIndex = 1;
             this.button2.Text = "Fill";
             this.button2.UseVisualStyleBackColor = true;
@@ -111,7 +111,7 @@ namespace BooksClient
             this.button3.Location = new System.Drawing.Point(0, 42);
             this.button3.Margin = new System.Windows.Forms.Padding(7);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(64, 575);
+            this.button3.Size = new System.Drawing.Size(64, 480);
             this.button3.TabIndex = 2;
             this.button3.Text = "Left";
             this.button3.UseVisualStyleBackColor = true;
@@ -124,7 +124,7 @@ namespace BooksClient
             this.button1.Location = new System.Drawing.Point(0, 0);
             this.button1.Margin = new System.Windows.Forms.Padding(7);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(1776, 42);
+            this.button1.Size = new System.Drawing.Size(850, 42);
             this.button1.TabIndex = 0;
             this.button1.Text = "Top";
             this.button1.UseVisualStyleBackColor = true;
@@ -150,14 +150,14 @@ namespace BooksClient
             this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(7);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1784, 625);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(858, 530);
             this.flowLayoutPanel1.TabIndex = 1;
             // 
             // button4
             // 
             this.button4.AutoSize = true;
             this.button4.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.button4.Location = new System.Drawing.Point(1633, 7);
+            this.button4.Location = new System.Drawing.Point(707, 7);
             this.button4.Margin = new System.Windows.Forms.Padding(7);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(144, 42);
@@ -169,7 +169,7 @@ namespace BooksClient
             // 
             this.button5.AutoSize = true;
             this.button5.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.button5.Location = new System.Drawing.Point(1475, 7);
+            this.button5.Location = new System.Drawing.Point(549, 7);
             this.button5.Margin = new System.Windows.Forms.Padding(7);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(144, 42);
@@ -181,7 +181,7 @@ namespace BooksClient
             // 
             this.button6.AutoSize = true;
             this.button6.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.button6.Location = new System.Drawing.Point(1317, 7);
+            this.button6.Location = new System.Drawing.Point(391, 7);
             this.button6.Margin = new System.Windows.Forms.Padding(7);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(144, 42);
@@ -193,7 +193,7 @@ namespace BooksClient
             // 
             this.button7.AutoSize = true;
             this.button7.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.button7.Location = new System.Drawing.Point(1159, 7);
+            this.button7.Location = new System.Drawing.Point(233, 7);
             this.button7.Margin = new System.Windows.Forms.Padding(7);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(144, 42);
@@ -205,7 +205,7 @@ namespace BooksClient
             // 
             this.button8.AutoSize = true;
             this.button8.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.button8.Location = new System.Drawing.Point(1001, 7);
+            this.button8.Location = new System.Drawing.Point(75, 7);
             this.button8.Margin = new System.Windows.Forms.Padding(7);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(144, 42);
@@ -217,7 +217,7 @@ namespace BooksClient
             // 
             this.button9.AutoSize = true;
             this.button9.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.button9.Location = new System.Drawing.Point(843, 7);
+            this.button9.Location = new System.Drawing.Point(707, 63);
             this.button9.Margin = new System.Windows.Forms.Padding(7);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(144, 42);
@@ -231,7 +231,7 @@ namespace BooksClient
             this.label1.BackColor = System.Drawing.Color.CadetBlue;
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.SetFlowBreak(this.label1, true);
-            this.label1.Location = new System.Drawing.Point(494, 0);
+            this.label1.Location = new System.Drawing.Point(358, 56);
             this.label1.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(335, 56);
@@ -243,7 +243,7 @@ namespace BooksClient
             // 
             this.button10.AutoSize = true;
             this.button10.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.button10.Location = new System.Drawing.Point(1633, 63);
+            this.button10.Location = new System.Drawing.Point(707, 119);
             this.button10.Margin = new System.Windows.Forms.Padding(7);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(144, 42);
@@ -255,7 +255,7 @@ namespace BooksClient
             // 
             this.button11.AutoSize = true;
             this.button11.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.button11.Location = new System.Drawing.Point(1475, 63);
+            this.button11.Location = new System.Drawing.Point(549, 119);
             this.button11.Margin = new System.Windows.Forms.Padding(7);
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(144, 42);
@@ -267,7 +267,7 @@ namespace BooksClient
             // 
             this.button12.AutoSize = true;
             this.button12.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.button12.Location = new System.Drawing.Point(1317, 63);
+            this.button12.Location = new System.Drawing.Point(391, 119);
             this.button12.Margin = new System.Windows.Forms.Padding(7);
             this.button12.Name = "button12";
             this.button12.Size = new System.Drawing.Size(144, 42);
@@ -279,7 +279,7 @@ namespace BooksClient
             // 
             this.button13.AutoSize = true;
             this.button13.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.button13.Location = new System.Drawing.Point(1159, 63);
+            this.button13.Location = new System.Drawing.Point(233, 119);
             this.button13.Margin = new System.Windows.Forms.Padding(7);
             this.button13.Name = "button13";
             this.button13.Size = new System.Drawing.Size(144, 42);
@@ -292,7 +292,7 @@ namespace BooksClient
             this.button14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.button14.AutoSize = true;
             this.button14.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.button14.Location = new System.Drawing.Point(1001, 63);
+            this.button14.Location = new System.Drawing.Point(75, 119);
             this.button14.Margin = new System.Windows.Forms.Padding(7);
             this.button14.Name = "button14";
             this.button14.Size = new System.Drawing.Size(144, 42);
@@ -306,7 +306,7 @@ namespace BooksClient
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.DarkTurquoise;
             this.flowLayoutPanel1.SetFlowBreak(this.label2, true);
-            this.label2.Location = new System.Drawing.Point(724, 68);
+            this.label2.Location = new System.Drawing.Point(588, 168);
             this.label2.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(263, 32);
@@ -512,7 +512,7 @@ namespace BooksClient
             this.tabPage2.Margin = new System.Windows.Forms.Padding(7);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(7);
-            this.tabPage2.Size = new System.Drawing.Size(1790, 631);
+            this.tabPage2.Size = new System.Drawing.Size(864, 536);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Panel mit Docking";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -523,7 +523,7 @@ namespace BooksClient
             this.tabPage3.Location = new System.Drawing.Point(8, 46);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(1790, 631);
+            this.tabPage3.Size = new System.Drawing.Size(864, 536);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "FlowLayout";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -534,7 +534,7 @@ namespace BooksClient
             this.tabPage4.Location = new System.Drawing.Point(8, 46);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(1790, 631);
+            this.tabPage4.Size = new System.Drawing.Size(864, 536);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Splitpanel";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -552,8 +552,8 @@ namespace BooksClient
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.BackColor = System.Drawing.Color.Teal;
-            this.splitContainer1.Size = new System.Drawing.Size(1784, 625);
-            this.splitContainer1.SplitterDistance = 592;
+            this.splitContainer1.Size = new System.Drawing.Size(858, 530);
+            this.splitContainer1.SplitterDistance = 284;
             this.splitContainer1.TabIndex = 0;
             // 
             // Form1

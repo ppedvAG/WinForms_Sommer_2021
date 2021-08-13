@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,11 +29,11 @@ namespace BooksClient
 
     public class Volumeinfo
     {
-        //public override string ToString()
-        //{
-        //    return $"VolInfo mit dem Titel: {title}";
-        //    //return base.ToString();
-        //}
+        public override string ToString()
+        {
+            return $"VolInfo mit dem Titel: {title}";
+            //return base.ToString();
+        }
 
         public string title { get; set; }
         public string[] authors { get; set; }
@@ -44,7 +45,9 @@ namespace BooksClient
         public int pageCount { get; set; }
         public string printType { get; set; }
         public string[] categories { get; set; }
-        public int averageRating { get; set; }
+        public string averageRating { get; set; }
+
+        [Browsable(false)] //wird so nicht mehr im intellisense angezeigt
         public int ratingsCount { get; set; }
         public string maturityRating { get; set; }
         public bool allowAnonLogging { get; set; }

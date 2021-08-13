@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
@@ -10,9 +11,89 @@ namespace BooksClient
 {
     public partial class BooksClientForm : Form
     {
+        BindingSource source = new BindingSource();
+
         public BooksClientForm()
         {
             InitializeComponent();
+
+            //ratingValueLabel.DataBindings.Add("Text", ratingTrackBar, "Value");
+            //ratingValueLabel.DataBindings.Add(nameof(Label.Text), ratingTrackBar, nameof(TrackBar.Value));
+            //ratingValueLabel.DataBindings.Add(nameof(ratingValueLabel.Text), ratingTrackBar, nameof(ratingTrackBar.Value));
+
+
+            //ratingValueLabel.DataBindings.Add( //ziel Control
+            //    nameof(ratingValueLabel.Text), //ziel Property
+            //    ratingTrackBar,                //quell Control
+            //    nameof(ratingTrackBar.Value),  //quell Property
+            //    true,                          //Formatierung aktiv
+            //    DataSourceUpdateMode.Never,    //nur lesen
+            //    "?",                           //falls null zeige ? an
+            //    "0⭐");                        //format string für simple typen (int, decimal, bool...etc)
+
+
+            //format bei complexen typen (klassen)
+            var binding = new Binding(nameof(ratingValueLabel.Text), ratingTrackBar, nameof(ratingTrackBar.Value));
+            binding.Format += Binding_Format;
+            ratingValueLabel.DataBindings.Add(binding);
+
+            source.DataSource = new List<Volumeinfo>(); // muss initialisiert werden mit dem entsprechen Datentyp
+
+            listBox1.DataSource = source;
+
+            titleTextBox.DataBindings.Add(nameof(titleTextBox.Text), source, nameof(Volumeinfo.title), true, DataSourceUpdateMode.OnPropertyChanged);
+            descTextBox.DataBindings.Add(nameof(descTextBox.Text), source, nameof(Volumeinfo.description));
+            var rateBinding = new Binding(nameof(ratingTrackBar.Value), source, nameof(Volumeinfo.averageRating), true, DataSourceUpdateMode.OnPropertyChanged);
+            rateBinding.Parse += RateBinding_FormatToString; //von der trackbar (value[int]) zur source (averageRating[string])
+            rateBinding.Format += RateBinding_FormatToInt;//von der source (averageRating[string]) zur  trackbar (value[int]) 
+            ratingTrackBar.DataBindings.Add(rateBinding);
+            pageCountNumericUpDown.DataBindings.Add(nameof(pageCountNumericUpDown.Value), source, nameof(Volumeinfo.pageCount));
+
+            //langComboBox.DataSource = new List<string>(new string[] { "", "de", "en", "fr", "sp" });
+            langComboBox.DataSource = CultureInfo.GetCultures(CultureTypes.AllCultures).Select(x => x.TwoLetterISOLanguageName).Distinct().ToList();
+            langComboBox.DataBindings.Add(nameof(langComboBox.SelectedItem), source, nameof(Volumeinfo.language));
+
+            source.CurrentItemChanged += Source_CurrentItemChanged; 
+        }
+
+        private void Source_CurrentItemChanged(object sender, EventArgs e)
+        {
+            for (int i = 0; i < authorsCheckedListBox.Items.Count; i++)
+            {
+                bool isAuthorOfSelectedBook = source.Current != null && source.Current is Volumeinfo vi && vi.authors.Contains(authorsCheckedListBox.Items[i]);
+                authorsCheckedListBox.SetItemChecked(i, isAuthorOfSelectedBook);
+            }
+        }
+
+        private void RateBinding_FormatToString(object sender, ConvertEventArgs e)
+        {
+            if (e.Value is int ratingAlsInt)
+            {
+                e.Value = ratingAlsInt.ToString();
+            }
+        }
+
+
+        private void RateBinding_FormatToInt(object sender, ConvertEventArgs e)
+        {
+            if (e.Value is string ratingAsString)
+            {
+                if (string.IsNullOrWhiteSpace(ratingAsString))
+                    e.Value = 0;
+
+                if (double.TryParse(ratingAsString, NumberStyles.Any, new CultureInfo("en-US"), out double ratingAlsInt))
+                {
+                    e.Value = (int)Math.Round(ratingAlsInt, 0, MidpointRounding.AwayFromZero);
+                }
+            }
+        }
+
+        private void Binding_Format(object sender, ConvertEventArgs e)
+        {
+            if (e.Value is int i)
+            {
+                e.Value = $"{i} 🌟";
+            }
         }
 
         private void showForm1Button_Click(object sender, EventArgs e)
@@ -45,7 +126,13 @@ namespace BooksClient
                 BooksResult br = JsonConvert.DeserializeObject<BooksResult>(json);
 
                 dataGridView1.DataSource = br.items.Select(x => x.volumeInfo).OrderBy(x => x.pageCount).ToList();
-                listBox1.DataSource = dataGridView1.DataSource;
+                source.DataSource = dataGridView1.DataSource;
+
+                authorsCheckedListBox.DataSource = br.items.Select(x => x.volumeInfo)
+                                                           .Where(x => x.authors != null)
+                                                           .SelectMany(x => x.authors)
+                                                           .Distinct().ToList();
+
             }
             catch (Exception ex)
             {
@@ -124,6 +211,20 @@ namespace BooksClient
             {
                 e.Value = $"{volinfo.title} [{volinfo.publishedDate}] ({volinfo.pageCount} pages)";
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var form = new Form();
+            //form.Controls.Add(new Label() { Text = "Hallo", Left = 12, Top = 10 });
+            //form.Controls.Add(new HalloBinding() { Text = "Hallo", Left = 12, Top = 40 });
+
+            var hb = new HalloBinding() { Text = "Hallo", Dock = DockStyle.Fill };
+            hb.textBox1.Text = "Hallo";
+            form.Width = hb.Width;
+            form.Height = hb.Height;
+            form.Controls.Add(hb);
+            form.ShowDialog();
         }
     }
 }

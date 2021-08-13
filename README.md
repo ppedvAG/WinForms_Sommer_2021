@@ -42,3 +42,6 @@ https://docs.microsoft.com/en-us/dotnet/standard/analyzers/portability-analyzer
 https://github.com/dotnet/try-convert/releases
 
 https://dotnet.microsoft.com/platform/upgrade-assistant
+
+https://draw.io
+
